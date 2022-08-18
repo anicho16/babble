@@ -1,5 +1,4 @@
 
-
 package edu.westga.cs.babble.controllers;
 
 import java.io.IOException;
@@ -11,11 +10,10 @@ import org.languagetool.markup.AnnotatedText;
 import org.languagetool.markup.AnnotatedTextBuilder;
 import org.languagetool.rules.RuleMatch;
 
-
 /**
  * Spell checker for words we attempt to make with Babble
  * @author lewisb
- *
+ * @version Fall 2022
  */
 public class WordDictionary {
 
@@ -25,7 +23,7 @@ public class WordDictionary {
 	 * Creates a new WordDictionary
 	 */
 	public WordDictionary() {
-		langTool = new JLanguageTool(new AmericanEnglish());
+		this.langTool = new JLanguageTool(new AmericanEnglish());
 	}
 	
 	/**
@@ -44,7 +42,7 @@ public class WordDictionary {
 		
 		AnnotatedText text = new AnnotatedTextBuilder().addText(word).build();
 		try {
-			List<RuleMatch> matches = langTool.check(text);
+			List<RuleMatch> matches = this.langTool.check(text);
 			return matches.isEmpty();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
