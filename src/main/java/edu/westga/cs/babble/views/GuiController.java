@@ -4,8 +4,14 @@
 
 package edu.westga.cs.babble.views;
 
+import java.util.List;
+
+import edu.westga.cs.babble.model.EmptyTileBagException;
+import edu.westga.cs.babble.model.Tile;
 import edu.westga.cs.babble.model.TileBag;
+import edu.westga.cs.babble.model.TileList;
 import edu.westga.cs.babble.model.TileRack;
+import edu.westga.cs.babble.model.TileRackFullException;
 
 /**
  * @author Amber Nicholas
@@ -15,14 +21,32 @@ import edu.westga.cs.babble.model.TileRack;
 public class GuiController {
 	
 	private TileBag bagOfTiles;
-	private TileRack tilesOnRack;
+	private TileList tilesOnRack;
 	
 	/**
 	 * Creates model objects with getters for TileBag and TileRack
 	 */
 	GuiController() {
 		this.bagOfTiles = new TileBag();
-		this.tilesOnRack = new TileRack();
+		this.tilesOnRack = new TileList();
+	}
+	
+	public void addTileToRack() {
+		while (this.tilesOnRack.getSize() < TileRack.MAX_SIZE && !this.bagOfTiles.isEmpty()) {
+			try {
+				this.tilesOnRack.append(this.bagOfTiles.drawTile());
+			} catch (TileRackFullException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (EmptyTileBagException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	public TileList getRack() {
+		return this.tilesOnRack;
 	}
 
 }

@@ -12,19 +12,21 @@ import javax.swing.JList;
  *
  */
 public class Gui extends GuiWindowBuilderLayout {
-	private GuiController guiControls;
+	private GuiController rack;
 	
 	/**
 	 * 
 	 */
 	public Gui() {
-		this.guiControls = new GuiController();
+		this.rack = new GuiController();
+		this.rack.addTileToRack();
 		this.createList();
 	}
 
 	private void createList() {
-		super.list = new JList();
+		super.list = new JList(this.rack.getRack());
 		super.list.setBounds(39, 33, 343, 30);
+		super.list.setCellRenderer(new TileCellRenderer());
 		super.contentPane.add(this.list);		
 	}
 

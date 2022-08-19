@@ -1,13 +1,10 @@
 /**
  * 
  */
-package edu.westga.cs.babble.views;
+package edu.westga.cs.babble.model;
 
 import javax.swing.ListModel;
 import javax.swing.event.ListDataListener;
-
-import edu.westga.cs.babble.model.Tile;
-import edu.westga.cs.babble.model.TileRack;
 
 /**
  * @author amber
