@@ -18,6 +18,14 @@ import edu.westga.cs.babble.model.Tile;
  *
  */
 public class TileCellRenderer extends JLabel implements ListCellRenderer<Tile> {
+	
+	/**
+	 * 
+	 */
+	public TileCellRenderer() {
+		this.setOpaque(true);
+        //this.setBorder();
+	}
 
 	@Override
 	public Component getListCellRendererComponent(JList<? extends Tile> list, Tile value, int index, boolean isSelected,
