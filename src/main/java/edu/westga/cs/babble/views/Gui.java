@@ -12,12 +12,13 @@ import javax.swing.JList;
  *
  */
 public class Gui extends GuiWindowBuilderLayout {
-	private GuiController guiControls = new GuiController();
+	private GuiController guiControls;
 	
 	/**
 	 * 
 	 */
 	public Gui() {
+		this.guiControls = new GuiController();
 		this.createList();
 	}
 

@@ -100,8 +100,5 @@ public class GuiWindowBuilderLayout extends JFrame {
 		this.lblNewLabel_2.setBounds(39, 10, 45, 13);
 		this.contentPane.add(this.lblNewLabel_2);
 		
-		this.list = new JList();
-		this.list.setBounds(39, 33, 343, 30);
-		this.contentPane.add(this.list);
 	}
 }
