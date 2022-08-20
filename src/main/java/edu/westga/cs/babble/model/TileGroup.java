@@ -3,6 +3,11 @@ package edu.westga.cs.babble.model;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Creates a group of tiles which can be appended or removed
+ * @author lewisb
+ * @version CS6241
+ */
 public abstract class TileGroup {
 
 	private List<Tile> tiles;
@@ -62,12 +67,13 @@ public abstract class TileGroup {
 	/**
 	 * Stringifies the contents of the rack as the tile characters, in order of
 	 * containment.
+	 * @return space - all the tiles in string form
 	 */
 	public String getHand() {
-		String s = "";
-		for (Tile t : this.tiles) {
-			s += t.getLetter();
+		String space = "";
+		for (Tile theTile : this.tiles) {
+			space += theTile.getLetter();
 		}
-		return s;
+		return space;
 	}
 }

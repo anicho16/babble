@@ -9,7 +9,7 @@ import java.util.List;
 import edu.westga.cs.babble.model.EmptyTileBagException;
 import edu.westga.cs.babble.model.Tile;
 import edu.westga.cs.babble.model.TileBag;
-import edu.westga.cs.babble.model.TileList;
+import edu.westga.cs.babble.model.TileListModel;
 import edu.westga.cs.babble.model.TileRack;
 import edu.westga.cs.babble.model.TileRackFullException;
 
@@ -21,14 +21,14 @@ import edu.westga.cs.babble.model.TileRackFullException;
 public class GuiController {
 	
 	private TileBag bagOfTiles;
-	private TileList tilesOnRack;
+	private TileListModel tilesOnRack;
 	
 	/**
 	 * Creates model objects with getters for TileBag and TileRack
 	 */
 	GuiController() {
 		this.bagOfTiles = new TileBag();
-		this.tilesOnRack = new TileList();
+		this.tilesOnRack = new TileListModel();
 	}
 	
 	public void addTileToRack() {
@@ -45,7 +45,7 @@ public class GuiController {
 		}
 	}
 	
-	public TileList getRack() {
+	public TileListModel getRack() {
 		return this.tilesOnRack;
 	}
 

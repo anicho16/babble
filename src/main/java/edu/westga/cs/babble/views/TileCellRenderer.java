@@ -1,6 +1,7 @@
 /**
  * 
  */
+
 package edu.westga.cs.babble.views;
 
 import java.awt.Color;
@@ -17,15 +18,17 @@ import javax.swing.border.EmptyBorder;
 import edu.westga.cs.babble.model.Tile;
 
 /**
+ * Defines how a tile should be displayed in the list of tiles
  * @author Amber Nicholas
  * @version 8.19.22
  *
  */
 public class TileCellRenderer extends JLabel implements ListCellRenderer<Tile> {
+	private static final long serialVersionUID = 1L;
 	private Border blackBorder;
 	
 	/**
-	 * 
+	 * Constructor for the TileCellRenderer
 	 */
 	public TileCellRenderer() {
 		this.blackBorder = BorderFactory.createLineBorder(Color.black);

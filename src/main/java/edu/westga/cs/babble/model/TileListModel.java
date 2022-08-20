@@ -10,9 +10,9 @@ import javax.swing.event.ListDataListener;
  * @author amber
  *
  */
-public class TileList extends TileRack implements ListModel<Tile> {
+public class TileListModel extends TileRack implements ListModel<Tile> {
 	
-	public TileList() {
+	public TileListModel() {
 		
 	}
 

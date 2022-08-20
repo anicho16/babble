@@ -1,6 +1,5 @@
 package edu.westga.cs.babble.views;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -14,6 +13,12 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JList;
 
+/**
+ * Creates a Gui layout with text and textFields for Babble game
+ * @author Amber Nicholas
+ * @version 8.17.22
+ *
+ */
 public class GuiWindowBuilderLayout extends JFrame {
 
 	protected JPanel contentPane;
@@ -29,6 +34,7 @@ public class GuiWindowBuilderLayout extends JFrame {
 
 	/**
 	 * Launch the application.
+	 * @param args - not used
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -36,8 +42,8 @@ public class GuiWindowBuilderLayout extends JFrame {
 				try {
 					GuiWindowBuilderLayout frame = new GuiWindowBuilderLayout();
 					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
+				} catch (Exception error) {
+					error.printStackTrace();
 				}
 			}
 		});

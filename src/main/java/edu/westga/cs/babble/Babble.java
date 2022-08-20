@@ -5,11 +5,10 @@ import edu.westga.cs.babble.views.Gui;
 /**
  * Main class for the Babble project
  * 
- * @author lewisb
+ * @author Amber Nicholas
  * @version cs6241
  */
 public class Babble {
-
 	
     /**
      * Start point for the application.
