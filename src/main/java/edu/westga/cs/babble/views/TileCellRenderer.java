@@ -5,12 +5,14 @@ package edu.westga.cs.babble.views;
 
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Font;
 
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.ListCellRenderer;
 import javax.swing.border.Border;
+import javax.swing.border.EmptyBorder;
 
 import edu.westga.cs.babble.model.Tile;
 
@@ -27,8 +29,9 @@ public class TileCellRenderer extends JLabel implements ListCellRenderer<Tile> {
 	 */
 	public TileCellRenderer() {
 		this.blackBorder = BorderFactory.createLineBorder(Color.black);
+		this.setBorder(BorderFactory.createCompoundBorder(this.blackBorder, new EmptyBorder(4, 4, 4, 4)));
 		this.setOpaque(true);
-        this.setBorder(this.blackBorder);
+        this.setFont(new Font("Verdana", Font.PLAIN, 24));
 	}
 
 	@Override

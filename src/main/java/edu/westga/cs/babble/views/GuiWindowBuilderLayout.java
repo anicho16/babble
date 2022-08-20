@@ -48,56 +48,58 @@ public class GuiWindowBuilderLayout extends JFrame {
 	 */
 	public GuiWindowBuilderLayout() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 600, 500);
 		this.contentPane = new JPanel();
 		this.contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(this.contentPane);
 		this.contentPane.setLayout(null);
 		
 		this.textField = new JTextField();
-		this.textField.setBounds(39, 102, 343, 19);
+		this.textField.setBounds(26, 167, 535, 46);
 		this.contentPane.add(this.textField);
 		this.textField.setColumns(10);
 		
 		this.btnNewButton = new JButton("Reset");
+		this.btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		this.btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		this.btnNewButton.setBounds(149, 131, 114, 21);
+		this.btnNewButton.setBounds(248, 223, 134, 36);
 		this.contentPane.add(this.btnNewButton);
 		
 		this.btnNewButton_1 = new JButton("Play Word");
+		this.btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		this.btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		this.btnNewButton_1.setBounds(273, 131, 109, 21);
+		this.btnNewButton_1.setBounds(409, 223, 152, 36);
 		this.contentPane.add(this.btnNewButton_1);
 		
 		this.textField_1 = new JTextField();
-		this.textField_1.setBounds(262, 176, 120, 19);
+		this.textField_1.setBounds(343, 299, 218, 36);
 		this.contentPane.add(this.textField_1);
 		this.textField_1.setColumns(10);
 		
 		this.lblNewLabel = new JLabel("Score:");
-		this.lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		this.lblNewLabel.setBounds(218, 177, 45, 18);
+		this.lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		this.lblNewLabel.setBounds(248, 287, 85, 46);
 		this.contentPane.add(this.lblNewLabel);
 		
 		this.textField_2 = new JTextField();
-		this.textField_2.setBounds(39, 218, 343, 19);
+		this.textField_2.setBounds(26, 362, 535, 46);
 		this.contentPane.add(this.textField_2);
 		this.textField_2.setColumns(10);
 		
 		this.lblNewLabel_1 = new JLabel("Your Word");
-		this.lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		this.lblNewLabel_1.setBounds(39, 73, 85, 19);
+		this.lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		this.lblNewLabel_1.setBounds(26, 121, 117, 36);
 		this.contentPane.add(this.lblNewLabel_1);
 		
 		this.lblNewLabel_2 = new JLabel("Tiles");
-		this.lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		this.lblNewLabel_2.setBounds(39, 10, 45, 13);
+		this.lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		this.lblNewLabel_2.setBounds(26, 10, 104, 36);
 		this.contentPane.add(this.lblNewLabel_2);
 		
 	}
