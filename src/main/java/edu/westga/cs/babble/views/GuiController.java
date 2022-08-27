@@ -29,17 +29,16 @@ public class GuiController {
 	GuiController() {
 		this.bagOfTiles = new TileBag();
 		this.tilesOnRack = new TileListModel();
+		this.addTileToRack();
 	}
 	
-	public void addTileToRack() {
+	private void addTileToRack() {
 		while (this.tilesOnRack.getSize() < TileRack.MAX_SIZE && !this.bagOfTiles.isEmpty()) {
 			try {
 				this.tilesOnRack.append(this.bagOfTiles.drawTile());
 			} catch (TileRackFullException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (EmptyTileBagException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -47,6 +46,10 @@ public class GuiController {
 	
 	public TileListModel getRack() {
 		return this.tilesOnRack;
+	}
+	
+	public TileBag getTileBag() {
+		return this.bagOfTiles;
 	}
 
 }

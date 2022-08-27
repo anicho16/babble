@@ -5,6 +5,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import edu.westga.cs.babble.model.Tile;
+
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -30,7 +33,7 @@ public class GuiWindowBuilderLayout extends JFrame {
 	protected JTextField textField_2;
 	protected JLabel lblNewLabel_1;
 	protected JLabel lblNewLabel_2;
-	protected JList list;
+	protected JList<Tile> list;
 
 	/**
 	 * Launch the application.

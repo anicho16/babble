@@ -4,6 +4,7 @@
 
 package edu.westga.cs.babble.views;
 
+import java.awt.Frame;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -11,7 +12,10 @@ import javax.swing.JList;
 import javax.swing.ListSelectionModel;
 
 import edu.westga.cs.babble.model.Tile;
+import edu.westga.cs.babble.model.TileBag;
+import edu.westga.cs.babble.model.TileListModel;
 import edu.westga.cs.babble.model.TileNotInGroupException;
+import edu.westga.cs.babble.model.TileRackFullException;
 
 /**
  * Defines the GUI for the babble application
@@ -23,61 +27,82 @@ import edu.westga.cs.babble.model.TileNotInGroupException;
 public class Gui extends GuiWindowBuilderLayout {
 
 	private static final long serialVersionUID = 1L;
-	private static GuiController rack;
-	private static String selectedLetters;
+	private GuiController models;
+	private TileListModel rack;
+	private TileBag bagOfTiles;
+	private int tilesLeftOnRack;
 
 	/**
 	 * Constructor for the GUI class
 	 */
 	public Gui() {
-		this.selectedLetters = "";
-		this.rack = new GuiController();
-		this.rack.addTileToRack();
+		this.models = new GuiController();
+		this.rack = this.models.getRack();
+		this.bagOfTiles = this.models.getTileBag();
+		this.tilesLeftOnRack = this.rack.getSize();
 		this.createList();
+		System.out.println(this.rack.getSize());
 	}
 
 	private void createList() {
-		super.list = new JList(this.rack.getRack());
+		super.list = new JList<Tile>(this.rack);
 		super.list.setBounds(30, 54, 535, 56);
 		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		list.setLayoutOrientation(JList.HORIZONTAL_WRAP);
 		list.setVisibleRowCount(-1);
 		super.list.setCellRenderer(new TileCellRenderer());
 
-		list.addMouseListener(new MouseListener() {
-
-			@Override
-			public void mouseClicked(MouseEvent event) {
-				int selectedIndex = list.getSelectedIndex();
-				Tile selectedTile = Gui.rack.getRack().getElementAt(selectedIndex);
-				//Gui.selectedLetters += selectedTile.getLetter();
-				if (selectedIndex != -1) {
-					try {
-						Gui.rack.getRack().remove(selectedTile);
-					} catch (TileNotInGroupException e1) {
-						e1.printStackTrace();
-					}
-				}
-			}
-
-			@Override
-			public void mousePressed(MouseEvent event) {
-			}
-
-			@Override
-			public void mouseReleased(MouseEvent event) {
-			}
-
-			@Override
-			public void mouseEntered(MouseEvent event) {
-			}
-
-			@Override
-			public void mouseExited(MouseEvent event) {
-			}
-
-		});
+		list.addMouseListener(new ListMouseListener());
 		super.contentPane.add(this.list);
+	}
+
+	private void redrawRack() {
+		while (this.rack.getSize() < this.tilesLeftOnRack && !this.bagOfTiles.isEmpty()) {
+			try {
+				this.tilesLeftOnRack--;
+			} catch (TileRackFullException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	/*
+	 * Defines the listener for computer player first button.
+	 */
+	private class ListMouseListener extends Frame implements MouseListener {
+		@Override
+		/**
+		 * 
+		 */
+		public void mouseClicked(MouseEvent event) {
+			int selectedIndex = Gui.super.list.getSelectedIndex();
+			Tile selectedTile = (Tile) Gui.super.list.getSelectedValue();
+			try {
+				if (Gui.this.rack.getSize() > 0) {
+					Gui.this.rack.remove(selectedTile);
+					Gui.super.list.setModel(Gui.this.rack);
+					Gui.super.contentPane.add(Gui.this.list);
+				}
+			} catch (TileNotInGroupException e) {
+				e.printStackTrace();
+			}
+		}
+
+		@Override
+		public void mousePressed(MouseEvent event) {
+		}
+
+		@Override
+		public void mouseReleased(MouseEvent event) {
+		}
+
+		@Override
+		public void mouseEntered(MouseEvent event) {
+		}
+
+		@Override
+		public void mouseExited(MouseEvent event) {
+		}
 	}
 
 }
