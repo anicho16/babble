@@ -75,7 +75,7 @@ public class GuiWindowBuilderLayout extends JFrame {
 		this.btnNewButton = new JButton("Reset");
 		this.btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		this.btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent event) {
 			}
 		});
 		this.btnNewButton.setBounds(248, 223, 134, 36);
@@ -84,7 +84,7 @@ public class GuiWindowBuilderLayout extends JFrame {
 		this.btnNewButton_1 = new JButton("Play Word");
 		this.btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		this.btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent event) {
 			}
 		});
 		this.btnNewButton_1.setBounds(409, 223, 152, 36);

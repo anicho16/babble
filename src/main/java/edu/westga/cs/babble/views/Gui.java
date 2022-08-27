@@ -9,13 +9,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JList;
 import javax.swing.ListSelectionModel;
 
 import edu.westga.cs.babble.controllers.WordDictionary;
 import edu.westga.cs.babble.model.Tile;
-import edu.westga.cs.babble.model.TileBag;
 import edu.westga.cs.babble.model.TileListModel;
 import edu.westga.cs.babble.model.TileNotInGroupException;
 
@@ -31,10 +32,10 @@ public class Gui extends GuiWindowBuilderLayout {
 	private static final long serialVersionUID = 1L;
 	private GuiController models;
 	private TileListModel rack;
-	private TileBag bagOfTiles;
 	private String selectedLetters;
 	private int score;
 	private WordDictionary wordChecker;
+	private List<Tile> tempRack;
 
 	/**
 	 * Constructor for the GUI class
@@ -42,12 +43,22 @@ public class Gui extends GuiWindowBuilderLayout {
 	public Gui() {
 		this.models = new GuiController();
 		this.rack = this.models.getRack();
-		this.bagOfTiles = this.models.getTileBag();
+		this.tempRack = new ArrayList<Tile>();
 		this.selectedLetters = "";
 		this.score = 0;
 		this.wordChecker = new WordDictionary();
 		this.createList();
 		super.btnNewButton_1.addActionListener(new PlayWordListener());
+		super.btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event) {
+				for (Tile theTile : Gui.this.tempRack) {
+					Gui.this.rack.append(theTile);
+				}
+				Gui.this.tempRack.clear();
+				Gui.this.selectedLetters = "";
+				Gui.this.redrawRack();
+			}
+		});
 	}
 
 	private void createList() {
@@ -92,6 +103,7 @@ public class Gui extends GuiWindowBuilderLayout {
 		        Gui.this.selectedLetters = "";
 		        Gui.this.rack = Gui.this.models.getRack();
 		        Gui.this.redrawRack();
+		        Gui.this.tempRack.clear();
 			} else {
 				Gui.super.textField_2.setText("Not a valid word: " + Gui.this.selectedLetters + ". Press Reset to try again.");
 			}
@@ -116,6 +128,7 @@ public class Gui extends GuiWindowBuilderLayout {
 			try {
 				if (Gui.this.rack.getSize() > 0) {
 					Tile selectedTile = (Tile) Gui.super.list.getSelectedValue();
+					Gui.this.tempRack.add(selectedTile);
 					Gui.this.selectedLetters += selectedTile.getLetter();
 					Gui.this.rack.remove(selectedTile);
 					Gui.this.redrawRack();
