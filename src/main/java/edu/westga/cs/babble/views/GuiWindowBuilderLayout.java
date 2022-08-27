@@ -64,6 +64,7 @@ public class GuiWindowBuilderLayout extends JFrame {
 		this.contentPane.setLayout(null);
 		
 		this.textField = new JTextField();
+		this.textField.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		this.textField.setBounds(26, 167, 535, 46);
 		this.contentPane.add(this.textField);
 		this.textField.setColumns(10);

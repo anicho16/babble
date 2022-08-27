@@ -31,6 +31,7 @@ public class Gui extends GuiWindowBuilderLayout {
 	private TileListModel rack;
 	private TileBag bagOfTiles;
 	private int tilesLeftOnRack;
+	private String selectedLetters;
 
 	/**
 	 * Constructor for the GUI class
@@ -40,8 +41,8 @@ public class Gui extends GuiWindowBuilderLayout {
 		this.rack = this.models.getRack();
 		this.bagOfTiles = this.models.getTileBag();
 		this.tilesLeftOnRack = this.rack.getSize();
+		this.selectedLetters = "";
 		this.createList();
-		System.out.println(this.rack.getSize());
 	}
 
 	private void createList() {
@@ -76,12 +77,15 @@ public class Gui extends GuiWindowBuilderLayout {
 		 */
 		public void mouseClicked(MouseEvent event) {
 			int selectedIndex = Gui.super.list.getSelectedIndex();
-			Tile selectedTile = (Tile) Gui.super.list.getSelectedValue();
 			try {
 				if (Gui.this.rack.getSize() > 0) {
+					Tile selectedTile = (Tile) Gui.super.list.getSelectedValue();
+					Gui.this.selectedLetters += selectedTile.getLetter();
 					Gui.this.rack.remove(selectedTile);
 					Gui.super.list.setModel(Gui.this.rack);
 					Gui.super.contentPane.add(Gui.this.list);
+					Gui.super.textField.setText(Gui.this.selectedLetters);
+					Gui.super.contentPane.add(Gui.super.textField);
 				}
 			} catch (TileNotInGroupException e) {
 				e.printStackTrace();
