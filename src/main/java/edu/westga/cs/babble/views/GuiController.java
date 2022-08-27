@@ -32,7 +32,7 @@ public class GuiController {
 		this.addTileToRack();
 	}
 	
-	private void addTileToRack() {
+	public void addTileToRack() {
 		while (this.tilesOnRack.getSize() < TileRack.MAX_SIZE && !this.bagOfTiles.isEmpty()) {
 			try {
 				this.tilesOnRack.append(this.bagOfTiles.drawTile());
@@ -46,6 +46,10 @@ public class GuiController {
 	
 	public TileListModel getRack() {
 		return this.tilesOnRack;
+	}
+	
+	public void setRack(TileListModel tilesLeftOnRack) {
+		this.tilesOnRack = tilesLeftOnRack;
 	}
 	
 	public TileBag getTileBag() {

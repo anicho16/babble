@@ -6,7 +6,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import edu.westga.cs.babble.model.PlayedWordDocument;
 import edu.westga.cs.babble.model.Tile;
+import edu.westga.cs.babble.model.TileRack;
 
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -34,6 +36,7 @@ public class GuiWindowBuilderLayout extends JFrame {
 	protected JLabel lblNewLabel_1;
 	protected JLabel lblNewLabel_2;
 	protected JList<Tile> list;
+	protected PlayedWordDocument wordDocument;
 
 	/**
 	 * Launch the application.
@@ -63,7 +66,7 @@ public class GuiWindowBuilderLayout extends JFrame {
 		setContentPane(this.contentPane);
 		this.contentPane.setLayout(null);
 		
-		this.textField = new JTextField();
+		this.textField = new JTextField(this.wordDocument, "", TileRack.MAX_SIZE);
 		this.textField.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		this.textField.setBounds(26, 167, 535, 46);
 		this.contentPane.add(this.textField);
@@ -88,6 +91,7 @@ public class GuiWindowBuilderLayout extends JFrame {
 		this.contentPane.add(this.btnNewButton_1);
 		
 		this.textField_1 = new JTextField();
+		this.textField_1.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		this.textField_1.setBounds(343, 299, 218, 36);
 		this.contentPane.add(this.textField_1);
 		this.textField_1.setColumns(10);
@@ -98,6 +102,7 @@ public class GuiWindowBuilderLayout extends JFrame {
 		this.contentPane.add(this.lblNewLabel);
 		
 		this.textField_2 = new JTextField();
+		this.textField_2.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		this.textField_2.setBounds(26, 362, 535, 46);
 		this.contentPane.add(this.textField_2);
 		this.textField_2.setColumns(10);
