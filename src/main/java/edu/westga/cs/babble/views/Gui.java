@@ -59,6 +59,18 @@ public class Gui extends GuiWindowBuilderLayout {
 				Gui.this.redrawRack();
 			}
 		});
+		this.setToolTips();
+	}
+
+	private void setToolTips() {
+		super.textField.setToolTipText("Add tiles to this location to create a word.");
+		super.textField_1.setToolTipText("Displays your total score");
+		super.textField_2.setToolTipText("Tells whether your played word earned you points or if it was invalid.");
+		
+		super.btnNewButton.setToolTipText("Puts the letters back and lets you start over with same 7 tiles");
+		super.btnNewButton_1.setToolTipText("Checks if word is valid. If valid, adds points to your score.");
+		
+		super.list.setToolTipText("Letters to choose from to create a word");
 	}
 
 	private void createList() {
