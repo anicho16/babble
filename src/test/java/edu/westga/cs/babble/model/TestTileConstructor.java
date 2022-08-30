@@ -9,7 +9,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
- * @author amber
+ * Tests for Tile model class
+ * @author Amber Nicholas
+ * @version 8.30.22
  *
  */
 public class TestTileConstructor {
