@@ -9,13 +9,13 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
- * Tests for Tile model class
+ * Tests for Tile model class Append method
  * @author Amber Nicholas
  * @version 8.30.22
  *
  */
 public class TestTileConstructor {
-	Tile theTile;
+	private Tile theTile;
 
 	/**
 	 * @throws java.lang.Exception

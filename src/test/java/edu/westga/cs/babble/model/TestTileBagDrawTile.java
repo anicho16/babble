@@ -15,7 +15,7 @@ import org.junit.jupiter.api.Test;
  *
  */
 public class TestTileBagDrawTile {
-	TileBag bagOfTiles;
+	private TileBag bagOfTiles;
 
 	/**
 	 * @throws java.lang.Exception
