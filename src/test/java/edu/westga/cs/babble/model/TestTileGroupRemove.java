@@ -157,6 +157,32 @@ public class TestTileGroupRemove {
 		assertEquals("class edu.westga.cs.babble.model.TileNotInGroupException", "" + exception.getClass());
 	}
 	
-	/** Not finished -- one more test needs to be added**/
+	@Test
+	public void doesNotRemoveDuplicateTilesFromTileGroup() throws TileNotInGroupException {
+		this.theTile = new Tile('A');
+		Tile theTile1 = new Tile('B');
+		Tile theTile2 = new Tile('C');
+		Tile theTile3 = new Tile('D');
+		Tile theTile4 = new Tile('E');
+		
+		this.group.append(this.theTile);
+		this.group.append(theTile1);
+		this.group.append(theTile2);
+		this.group.append(theTile3);
+		this.group.append(theTile4);
+		
+		this.group.remove(theTile2);
+		this.group.remove(theTile4);
+		this.group.remove(theTile1);
+		
+		Throwable exception = assertThrows(TileNotInGroupException.class, () -> this.group.remove(theTile2));
+		assertEquals("class edu.westga.cs.babble.model.TileNotInGroupException", "" + exception.getClass());
+		
+		exception = assertThrows(TileNotInGroupException.class, () -> this.group.remove(theTile4));
+		assertEquals("class edu.westga.cs.babble.model.TileNotInGroupException", "" + exception.getClass());
+		
+		exception = assertThrows(TileNotInGroupException.class, () -> this.group.remove(theTile1));
+		assertEquals("class edu.westga.cs.babble.model.TileNotInGroupException", "" + exception.getClass());
+	}
 
 }
