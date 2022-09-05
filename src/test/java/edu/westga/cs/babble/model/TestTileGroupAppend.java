@@ -41,7 +41,10 @@ public class TestTileGroupAppend {
 	public void shouldHaveOneTileInTileGroup() {
 		this.theTile = new Tile('A');
 		this.group.append(theTile);
+		
 		assertEquals(1, this.group.tiles().size());
+		assertEquals('A', this.group.tiles().get(0).getLetter());
+		assertEquals(true, this.group.tiles().contains(theTile));
 	}
 
 	@Test
@@ -59,6 +62,8 @@ public class TestTileGroupAppend {
 		this.group.append(theTile4);
 		
 		assertEquals(5, this.group.tiles().size());
+		assertEquals('D', this.group.tiles().get(3).getLetter());
+		assertEquals(true, this.group.tiles().contains(theTile2));
 	}
 	
 	@Test
