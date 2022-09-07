@@ -1,6 +1,7 @@
 /**
  * 
  */
+
 package edu.westga.cs.babble.model;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -16,61 +17,55 @@ import org.junit.jupiter.api.Test;
  */
 class TestPlayedWordMatches {
 	private PlayedWord playedWordTest;
-	private TileRack availableTiles;
 	
 	/**
+	 * do before each test
 	 * @throws java.lang.Exception
 	 */
 	@BeforeEach
 	void setUp() throws Exception {
 		this.playedWordTest = new PlayedWord();
-		this.availableTiles = new TileRack();
 	}
 	
 	@Test
 	void hasTilesForAMultipleLetterWord() {
 		this.playedWordTest = new PlayedWord("steaks");
 		
-		assertEquals(true, this.playedWordTest.matches("steaks"));
+		assertEquals(true, this.playedWordTest.matches("STEAKS"));
 	}
 	
 	@Test
 	void hasTilesForASingleLetterWord() {
 		this.playedWordTest = new PlayedWord("a");
-		
-		assertEquals(true, this.playedWordTest.matches("a"));
+		assertEquals(true, this.playedWordTest.matches("A"));
 	}
 
 	@Test
 	void cannotMatchWordWhenTilesAreScrambled() {
-		this.availableTiles.append(new Tile('t'));
-		this.availableTiles.append(new Tile('s'));
-		this.availableTiles.append(new Tile('e'));
-		this.availableTiles.append(new Tile('a'));
-		this.availableTiles.append(new Tile('k'));
+		this.playedWordTest = new PlayedWord("teska");
 		
-		assertEquals(false, this.playedWordTest.matches("steak"));
+		assertEquals(false, this.playedWordTest.matches("STEAK"));
 	}
 	
 	@Test
 	void cannotMatchWordIfInsufficientTiles() {
 		this.playedWordTest = new PlayedWord("a");
 		
-		assertEquals(true, this.playedWordTest.matches("a"));
+		assertEquals(false, this.playedWordTest.matches("AT"));
 	}
 	
 	@Test
 	void canMatchWordWithDuplicateLetters() {
-		this.playedWordTest = new PlayedWord("a");
+		this.playedWordTest = new PlayedWord("anna");
 		
-		assertEquals(true, this.playedWordTest.matches("a"));
+		assertEquals(true, this.playedWordTest.matches("ANNA"));
 	}
 	
 	@Test
 	void nonEmptyWordShouldNotMatchEmptyText() {
 		this.playedWordTest = new PlayedWord("a");
 		
-		assertEquals(true, this.playedWordTest.matches("a"));
+		assertEquals(false, this.playedWordTest.matches(""));
 	}
 	
 	@Test
