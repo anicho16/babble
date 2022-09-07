@@ -1,6 +1,7 @@
 /**
  * 
  */
+
 package edu.westga.cs.babble.model;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -18,6 +19,7 @@ public class TestTileConstructor {
 	private Tile theTile;
 
 	/**
+	 * do before each test
 	 * @throws java.lang.Exception
 	 */
 	@BeforeEach

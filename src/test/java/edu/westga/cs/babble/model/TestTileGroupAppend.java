@@ -1,6 +1,7 @@
 /**
  * 
  */
+
 package edu.westga.cs.babble.model;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -19,6 +20,7 @@ public class TestTileGroupAppend {
 	private	Tile theTile;
 
 	/**
+	 * do before each test
 	 * @throws java.lang.Exception
 	 */
 	@BeforeEach
@@ -28,7 +30,7 @@ public class TestTileGroupAppend {
 
 	@Test
 	public void shouldNotAllowNull() {
-		Throwable exception = assertThrows(IllegalArgumentException.class, () -> this.group.append(theTile));
+		Throwable exception = assertThrows(IllegalArgumentException.class, () -> this.group.append(this.theTile));
 		assertEquals("tile cannot be null", exception.getMessage());
 	}
 	
@@ -40,11 +42,11 @@ public class TestTileGroupAppend {
 	@Test
 	public void shouldHaveOneTileInTileGroup() {
 		this.theTile = new Tile('A');
-		this.group.append(theTile);
+		this.group.append(this.theTile);
 		
 		assertEquals(1, this.group.tiles().size());
 		assertEquals('A', this.group.tiles().get(0).getLetter());
-		assertEquals(true, this.group.tiles().contains(theTile));
+		assertEquals(true, this.group.tiles().contains(this.theTile));
 	}
 
 	@Test
@@ -55,7 +57,7 @@ public class TestTileGroupAppend {
 		Tile theTile3 = new Tile('D');
 		Tile theTile4 = new Tile('E');
 		
-		this.group.append(theTile);
+		this.group.append(this.theTile);
 		this.group.append(theTile1);
 		this.group.append(theTile2);
 		this.group.append(theTile3);
@@ -74,7 +76,7 @@ public class TestTileGroupAppend {
 		Tile theTile3 = new Tile('A');
 		Tile theTile4 = new Tile('E');
 		
-		this.group.append(theTile);
+		this.group.append(this.theTile);
 		this.group.append(theTile1);
 		this.group.append(theTile2);
 		this.group.append(theTile3);

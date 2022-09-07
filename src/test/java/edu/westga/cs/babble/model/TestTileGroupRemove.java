@@ -1,6 +1,7 @@
 /**
  * 
  */
+
 package edu.westga.cs.babble.model;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -19,6 +20,7 @@ public class TestTileGroupRemove {
 	private	Tile theTile;
 
 	/**
+	 * do before each test
 	 * @throws java.lang.Exception
 	 */
 	@BeforeEach
@@ -28,7 +30,7 @@ public class TestTileGroupRemove {
 
 	@Test
 	public void shouldNotAllowNull() {
-		Throwable exception = assertThrows(IllegalArgumentException.class, () -> this.group.remove(theTile));
+		Throwable exception = assertThrows(IllegalArgumentException.class, () -> this.group.remove(this.theTile));
 		assertEquals(null, exception.getMessage());
 	}
 	

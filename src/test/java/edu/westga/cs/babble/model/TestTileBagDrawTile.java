@@ -1,6 +1,7 @@
 /**
  * 
  */
+
 package edu.westga.cs.babble.model;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -18,6 +19,7 @@ public class TestTileBagDrawTile {
 	private TileBag bagOfTiles;
 
 	/**
+	 * create tile bag before each test
 	 * @throws java.lang.Exception
 	 */
 	@BeforeEach
@@ -27,7 +29,7 @@ public class TestTileBagDrawTile {
 
 	@Test
 	public void canDrawAllTiles() {
-		for(int counter = 0; counter < 98; counter++) {
+		for (int counter = 0; counter < 98; counter++) {
 			try {
 				this.bagOfTiles.drawTile();
 			} catch (EmptyTileBagException e) {
@@ -39,7 +41,7 @@ public class TestTileBagDrawTile {
 	
 	@Test
 	public void canNotDrawTooManyTiles() {
-		for(int counter = 0; counter < 98; counter++) {
+		for (int counter = 0; counter < 98; counter++) {
 			try {
 				this.bagOfTiles.drawTile();
 			} catch (EmptyTileBagException e) {
@@ -54,7 +56,7 @@ public class TestTileBagDrawTile {
 	public void hasProperTileDistribution() throws EmptyTileBagException {
 		String allLetters = "";
 		Tile theTile;
-		for(int counter = 0; counter < 98; counter++) {
+		for (int counter = 0; counter < 98; counter++) {
 			theTile = this.bagOfTiles.drawTile();
 			allLetters += theTile.getLetter();
 		}

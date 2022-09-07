@@ -1,6 +1,7 @@
 /**
  * 
  */
+
 package edu.westga.cs.babble.model;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -19,6 +20,7 @@ class TestPlayedWordGetScore {
 	/**
 	 * @throws java.lang.Exception
 	 */
+	
 	@BeforeEach
 	void setUp() throws Exception {
 		this.playedWordTest = new PlayedWord();

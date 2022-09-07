@@ -1,6 +1,7 @@
 /**
  * 
  */
+
 package edu.westga.cs.babble.model;
 
 import javax.swing.text.AttributeSet;
@@ -10,7 +11,10 @@ import javax.swing.text.PlainDocument;
 import edu.westga.cs.babble.controllers.WordDictionary;
 
 /**
- * @author amber
+ * Document Object for PlayedWord
+ * 
+ * @author Amber Nicholas
+ * @version 8.17.22
  *
  */
 public class PlayedWordDocument extends PlainDocument {
@@ -22,14 +26,15 @@ public class PlayedWordDocument extends PlainDocument {
 	private int max;
 
 	/**
-	 * 
-	 * @param maxLength
+	 * Defines max length of word
+	 * @param maxLength - maximum length of word
 	 */
 	public PlayedWordDocument(int maxLength) {
 		this.max = maxLength;
 	}
 
 	/**
+	 * Standard method for class
 	 * @param offset
 	 * @param str
 	 * @param at

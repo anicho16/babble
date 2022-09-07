@@ -1,6 +1,7 @@
 /**
  * 
  */
+
 package edu.westga.cs.babble.model;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -34,13 +35,13 @@ class TestTileRackGetNumberOfTilesNeeded {
 	
 	@Test
 	void tileRackWithOneTileShouldNeedMaxSizeMinusOneTiles() {
-		this.group.append(theTile);
+		this.group.append(this.theTile);
 		assertEquals(6, this.group.getNumberOfTilesNeeded());
 	}
 	
 	@Test
 	void tileRackWithSeveralTilesShouldNeedSomeTiles() {
-		this.group.append(theTile);
+		this.group.append(this.theTile);
 		this.group.append(new Tile('b'));
 		this.group.append(new Tile('c'));
 		
@@ -49,7 +50,7 @@ class TestTileRackGetNumberOfTilesNeeded {
 	
 	@Test
 	void fullRackNeedsZeroTiles() {
-		this.group.append(theTile);
+		this.group.append(this.theTile);
 		this.group.append(new Tile('b'));
 		this.group.append(new Tile('c'));
 		this.group.append(new Tile('c'));
